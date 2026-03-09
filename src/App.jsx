@@ -1,12 +1,11 @@
 import ItemList from './ItemList';
-import './App.css';
+import Layout from './layout';
 
 function App() {
   return (
-    <div>
-      <h1>Worlds Wonders Explorer</h1>
+    <Layout>
       <ItemList />
-    </div>
+    </Layout>
   );
 }
 
