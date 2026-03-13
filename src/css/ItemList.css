@@ -9,10 +9,25 @@
   margin-bottom: 1rem;
 }
 
+.search-input {
+  flex: 1;
+}
+
 .item-list input[type="text"],
 .item-list select {
   padding: 0.5rem;
   font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: border-color 0.2s;
+}
+
+.item-list input[type="text"]:focus,
+.item-list select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
 .tiles-grid {
