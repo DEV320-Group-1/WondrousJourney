@@ -1,7 +1,7 @@
 // Creates and provides wonders data to the app
 
 import { createContext, useState, useEffect } from 'react';
-import { getAllWonders } from '../api/wondersApi';
+import { getAllWonders } from '../api/world-wonders-api';
 
 export const WondersContext = createContext();
 
