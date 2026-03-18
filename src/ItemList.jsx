@@ -1,8 +1,9 @@
 import { useState, useEffect, useContext } from 'react';
 
 import './css/ItemList.css';
-import Item from './components/Item';
-import SearchFilter from './components/SearchFilter';
+import Item from './components/Item';                       // Individual wonder display
+import SearchFilter from './components/SearchFilter';       // Filter component
+import ItemCard from './components/ItemCard';               // Detailed view for selected wonder 
 
 import { WondersContext } from './context/WondersContext';  // Wonder context data for actual api data
 
@@ -14,11 +15,25 @@ export default function ItemList() {
   // filtered now starts as an empty array because API data loads later
   const [filtered, setFiltered] = useState([]);
 
+  // State to track the currently selected Item for the ItemCard view
+  const [selectedItem, setSelectedItem] = useState(null);
+
   // When wonders data is loaded from the API, copy it into filtered state
   // This lets SearchFilter work with the real API data
   useEffect(() => {
     setFiltered(wonders);
   }, [wonders]);
+
+
+  // If a wonder item is selected, show the ItemCard view instead of the list
+  if (selectedItem) {
+    return (
+      <div className="item-list">
+        <button onClick={() => setSelectedItem(null)}>Back</button> {/* back button sets selectedItem to null, closing the detailed view */}
+        <ItemCard item={selectedItem} />
+      </div>
+    );
+  }
 
   // --------------------------------------------------------------------------------------------
 
@@ -38,10 +53,12 @@ export default function ItemList() {
       ) : (
         <div className="tiles-grid">
           {filtered.map((item, index) => (
-            <Item 
-              key={item.name || index} 
-              item={item} 
-            />
+            <div
+              key={item.name || index}             
+              onClick={() => setSelectedItem(item)}
+            >
+              <Item item={item} />
+            </div>
           ))}
         </div>
       )}
