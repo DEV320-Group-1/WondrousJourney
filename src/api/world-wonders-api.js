@@ -4,7 +4,7 @@ const API_BASE_URL = 'https://www.world-wonders-api.org/v0/wonders/';
 
 // Fetch all wonders
 export async function getAllWonders() {
-  const response = await fetch(`${API_BASE_URL}/wonders`);
+  const response = await fetch(`${API_BASE_URL}`);
   const data = await response.json();
   return data;
 }
