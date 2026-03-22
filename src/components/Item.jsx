@@ -1,4 +1,7 @@
 import React from 'react';
+import TripAdvisorButton from './TripAdvisorButton';        // Button to open TripAdvisor page for a wonder
+import BritannicaButton from './BritannicaButton';          // Button to open Britannica page for a wonder
+
 
 export default function Item({ item }) {
   return (
@@ -23,6 +26,8 @@ export default function Item({ item }) {
         <p className="tile-description">
           {item.summary}
         </p>
+        <TripAdvisorButton item={item} />
+        <BritannicaButton item={item} />
       </div>
     </div>
   );
