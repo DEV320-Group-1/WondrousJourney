@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import './css/ItemList.css';
 import Item from './components/Item';                       // Individual wonder display
 import SearchFilter from './components/SearchFilter';       // Filter component
-import ItemCard from './components/ItemCard';               // Detailed view for selected wonder 
+import ItemCard from './components/ItemCard';               // Detailed view for selected wonder
 
 import { WondersContext } from './context/WondersContext';  // Wonder context data for actual api data
 
