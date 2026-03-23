@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Item from "./Item"; 
 import SearchFilter from "./SearchFilter"; 
+import RemoveItem from "./components/RemoveItem";
 
 
+// Logic
 const SavedPage = () => {
   const [savedItems, setSavedItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
@@ -14,14 +16,7 @@ const SavedPage = () => {
     setFilteredItems(storedItems);
   }, []);
 
-  // Remove item from saved list
-  const removeItem = (id) => {
-    const updatedItems = savedItems.filter((item) => item.id !== id);
-    setSavedItems(updatedItems);
-    setFilteredItems(updatedItems);
-    localStorage.setItem("savedJourneys", JSON.stringify(updatedItems));
-  };
-
+  // Page
   return (
     <div className="saved-page">
       <h1>Your Saved Journeys</h1>
@@ -37,11 +32,14 @@ const SavedPage = () => {
             <div key={item.id} className="saved-card-wrapper">
               {/* Reusable Item component */}
               <Item item={item} />
-
-              {/* Remove button */}
-              <button onClick={() => removeItem(item.id)}>
-                Remove
-              </button>
+           
+            {/* Reusable RemoveItem component */}
+            <RemoveItem
+                id={item.id}
+                savedItems={savedItems}
+                setSavedItems={setSavedItems}
+                setFilteredItems={setFilteredItems}
+            />
             </div>
           ))}
         </div>
