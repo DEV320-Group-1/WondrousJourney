@@ -3,6 +3,7 @@ import Item from "./components/Item";
 import SearchFilter from "./components/SearchFilter";
 import RemoveItem from "./components/RemoveItem";
 import ItemCard from "./components/ItemCard";
+import DownloadSavedButton from "./components/DownloadSavedButton";
 
 const SavedPage = () => {
   const [savedItems, setSavedItems] = useState([]);
@@ -40,6 +41,9 @@ const SavedPage = () => {
         items={savedItems}
         onFilterChange={setFilteredItems}
       />
+
+      {/* Download button */}
+      <DownloadSavedButton />
 
       {filteredItems.length === 0 ? (
         <p>No matching journeys found.</p>
