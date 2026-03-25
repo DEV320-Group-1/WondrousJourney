@@ -1,25 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-export default function AddItem({ item, savedItems, setSavedItems, setFilteredItems }) {
+export default function AddItem({ item }) {
 
+  const [isAdded, setIsAdded] = useState(false);
 
-    const handleAdd = () => 
-    {
-    // Check if item already exists (prevents duplicates)
-    const exists = savedItems.some((i) => i.id === item.id);
-    if (exists) return;
+  // check localStorage when component loads
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem("savedJourneys")) || [];
 
-    const updatedItems = [...savedItems, item];
+    // check if item is already in savedJourneys by comparing names
+    let found = false;
+    for (let i = 0; i < saved.length; i++) {
+      if (saved[i].name === item.name) {
+        found = true;
+        break;
+      }
+    }
 
-    setSavedItems(updatedItems);
-    setFilteredItems(updatedItems);
+    setIsAdded(found);
+  }, [item]);
 
-    localStorage.setItem("savedJourneys", JSON.stringify(updatedItems));
-    };
+  const handleAdd = () => {
+    const saved = JSON.parse(localStorage.getItem("savedJourneys")) || [];
 
-    return (
-        <button onClick={handleAdd}>
-        Add Journey
-        </button>
-    );
+    saved.push(item);
+    localStorage.setItem("savedJourneys", JSON.stringify(saved));
+
+    setIsAdded(true);
+  };
+
+  return (
+    // disable button if item is already added to savedJourneys
+    <button onClick={handleAdd} disabled={isAdded}>
+      {isAdded ? "Added" : "Add"}
+    </button>
+  );
 }

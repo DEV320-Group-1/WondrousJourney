@@ -5,6 +5,11 @@ import Item from './components/Item';                       // Individual wonder
 import SearchFilter from './components/SearchFilter';       // Filter component
 import ItemCard from './components/ItemCard';               // Detailed view for selected wonder
 
+import TripAdvisorButton from './components/TripAdvisorButton';        // Button to open TripAdvisor page for a wonder
+import BritannicaButton from './components/BritannicaButton';          // Button to open Britannica page for a wonder
+import AddItem from './components/AddItem';                            // Button to add a wonder to saved items
+
+
 import { WondersContext } from './context/WondersContext';  // Wonder context data for actual api data
 
 export default function ItemList() {
@@ -53,11 +58,18 @@ export default function ItemList() {
       ) : (
         <div className="tiles-grid">
           {filtered.map((item, index) => (
-            <div
-              key={item.name || index}             
-              onClick={() => setSelectedItem(item)}
-            >
-              <Item item={item} />
+            <div key={item.name || index}>
+
+              {/* clickable card only */}
+              <div onClick={() => setSelectedItem(item)}>
+                <Item item={item} />
+              </div>
+
+              {/* buttons outside clickable area */}
+              <TripAdvisorButton item={item} />
+              <BritannicaButton item={item} />
+              <AddItem item={item} />
+
             </div>
           ))}
         </div>
