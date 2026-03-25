@@ -32,7 +32,7 @@ export function WondersProvider(props) {
 // WondersProvider is used in main.jsx to wrap around the app, so all components can access the wonders data through context.
 // WondersProvider fetches the wonders data from the API when it first renders and stores it in state, then provides it to any child components that consume the context.
 //
-// ----------------------------------------------------------------------------https://claude.ai/chat/5db0f0e7-e7d4-438e-a804-fc945a024292
+// ----------------------------------------------------------------------------
 //
 // Example usage in a component:
 //
