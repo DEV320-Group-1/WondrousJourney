@@ -10,7 +10,7 @@ export default function RemoveItem({ id, savedItems, setSavedItems, setFilteredI
 
   return (
     <button onClick={handleRemove}>
-      Remove
+      Remove Journey
     </button>
   );
 }
