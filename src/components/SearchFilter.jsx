@@ -37,8 +37,11 @@ export default function SearchFilter({ items, onFilterChange }) {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         className="search-input"
+        style={{ color: "black", backgroundColor: "white" }}
+
       />
-      <select value={category} onChange={(e) => setCategory(e.target.value)}>
+      <select value={category} onChange={(e) => setCategory(e.target.value)}
+        style={{ color: "black", backgroundColor: "white" }}>
         {categories.map((c) => (
           <option key={c} value={c}>
             {c}
