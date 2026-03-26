@@ -1,16 +1,69 @@
-# React + Vite
+# Wondrous Journey  
+DEV322 Final Project  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React web application that allows users to browse world wonders, view detailed information, and save selected wonders locally in the browser.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## How to Run This Project
 
-## React Compiler
+### 1. Clone the repository
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+git clone https://github.com/DEV320-Group-1/WondrousJourney.git
+```
 
-## Expanding the ESLint configuration
+### 2. Install dependencies
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+```
+
+### 3. Start the development server
+
+```bash
+npm run dev
+```
+
+---
+
+## App Features
+
+- Fetch world wonders data from public API  
+- Browse wonders list  
+- Search and filter wonders  
+- View detailed wonder information  
+- Save wonders to browser localStorage  
+- Remove saved wonders  
+- Download saved wonders as JSON file  
+
+---
+
+## Technologies Used
+
+- React  
+- Vite  
+- React Router  
+- LocalStorage (client-side persistence)  
+- World Wonders API  
+
+---
+
+## Project Structure Overview
+
+```
+src/
+  api/        → API fetch logic
+  components/ → UI components (Item, ItemCard, Buttons)
+  context/    → Shared wonders data provider
+  pages/      → Main views (Browse, Saved)
+```
+
+---
+
+## Future Improvements
+
+- Import saved wonders from JSON file  
+- UI styling improvements  
+- Better state management  
+- Deployment to production hosting  
