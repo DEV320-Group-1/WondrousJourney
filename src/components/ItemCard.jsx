@@ -2,6 +2,9 @@
 
 // prop takes in wonder data from Item.jsx, which gets it from ItemList.jsx, which gets it from WondersContext.jsx, which gets it from the API
 // note: the prop is each wonder item, not the whole array of wonders
+
+
+
 export default function ItemCard({ item }) {
 
   return (
@@ -12,6 +15,11 @@ export default function ItemCard({ item }) {
         src={item.links?.images?.[0]}
         alt={item.name}
         className="item-card-image"
+        style={{
+              width: "100%",
+              height: "550px",
+              objectFit: "contain"
+              }}
       />
 
       {/* CONTENT SECTION */}
